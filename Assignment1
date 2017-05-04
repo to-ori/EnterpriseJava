@@ -1,0 +1,5 @@
+Simple Servlet:
+Suppose you want to create a simple Web-based client/server banking software. As part of this, banking customers should be able to perform the following two tasks:
+1) register themselves with the system / update their respective registered address, and
+2) request their respective registered address and current account balance.
+Customers are identified by their respective name + date of birth (DOB). 

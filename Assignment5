@@ -1,0 +1,51 @@
+You are given the following application-layer networking protocol for a simple client/server application. A
+client can send tokens (words) to the server which adds them to a global tokens list in memory which has
+a maximum capacity of ten different tokens (there are no duplicates in the list). The tokens list should be
+sorted in lexicographical order at any time. There are just three types of requests (SUBMIT, REMOVE and
+QUIT).
+The protocol in detail:
+ Client request (a message send from client to server): SUBMIT token
+Server: If the tokens list is not yet full, add the token to the global list of tokens (if the list doesn’t
+contain that token yet) or ignore it (if the submitted token is already in the list). In both cases, respond
+by sending message OK to the client. If the list is already full, or if some other kind of error occurs,
+respond to the client with message ERROR.
+token stands for any string which doesn’t contain whitespace, see class Scanner (Java API).
+The global tokens list should be sorted in lexicographical order at any time. Choose an appropriate
+data structure for representing the tokens list.
+ Client request: REMOVE token
+Server: If the global tokens list contains token, remove it from the tokens list and reply to the client
+with message OK. Otherwise, reply with ERROR.
+ Client request: QUIT
+Server: Ends the connection to that client. No response.
+Example interaction: Client: SUBMIT gsdfg  Server: OK  Client: SUBMIT uvwxyz  Server: OK  Client:
+REMOVE gsdfg  Server: OK  Client: REMOVE gsdfg  Server: ERROR  Client: SUBMIT gsdfg 
+Server: OK  Client: SUBMIT uvwxyz  Server: OK  Client: SUBMIT abc  Server: OK  Client: QUIT
+
+
+Q1. Create a (socket-based, non-enterprise-, non-servlet-) Java program for a multithreaded server which
+can interact with clients via the Internet (*) in compliance with the given protocol.
+The server should be able to handle multiple clients concurrently (simultaneously), using
+multithreading (i.e., any number of clients should be able to be connected to the server and being
+dealt with by the server at the same time). As specified above, the server should maintain only a
+single, global tokens list which is never emptied by the server unless by means of REMOVE requests
+(i.e., not a new empty tokens list for each connecting client). That is, all clients submit their tokens to
+the same global tokens list on the server.
+
+Q2. Write a client program in Java which can interact with your server via the Internet (*).
+The client should ask the user to enter commands of the following form, using the console:
+CONNECT IP-address, SUBMIT token, REMOVE token and BYE.
+The user can successively enter as many commands as s/he wants (in a loop), until BYE is entered,
+which ends the connection to the server and ends your client program.
+Each SUBMIT and REMOVE command should be immediately forwarded to the server and the client
+should then print the response received from the server. token stands for a string without whitespace
+(see application-layer protocol above).
+CONNECT IP-address allows the user to specify the server to which subsequent SUBMIT and REMOVE
+request are send, until the users enters a new CONNECT command, which ends the connection with
+the current server and connects to another server. Before the first CONNECT command has been
+entered, any SUBMIT or REMOVE command should fail, of course.
+Don’t forget to test error conditions (e.g., by submitting eleven different tokens to the server). Also,
+check that a single running server can deal with multiple clients (>=2 running instances of your client
+program) simultaneously (Q1).
+(*) Server and client(s) need to interact via TCP/IP, but for simplicity and security reasons, clients and
+the server should actually run on the same machine (see “localhost” in lecture, i.e., IP-addresses
+should be 127.0.0.1). Use a port number of your own choice.

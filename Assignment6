@@ -1,0 +1,18 @@
+Q1. Modify/extend the given client program (ClientSimple.java) so that it provides a Swing-based
+Graphical User Interface (GUI) for letting the user interact with the server.
+There should be a window which contains an input text field for the amount which should be converted and
+two buttons, labelled “lb->kg” (i.e., pounds to kg) and “lb->kg”. After the user has clicked on one of these
+buttons, the conversion result (returned from the server) should be displayed in the same window
+(somewhere below or next to the input field and buttons, not in a popup window). The user can afterwards
+perform a new conversion using your GUI or close the window (ends the client program).
+
+Q2. Suppose you want to analyze the data produced by a couple of weather stations (meteorological stations).
+Create a Java class WeatherStation with the following attributes (fields): the city where the station is
+located and the station’s measurements (an ArrayList of objects of class Measurement). Also create a class
+Measurement. Objects of class Measurement should have attributes time (an integer, representing the time
+of the measurement) and temperature (a double number).
+Add a method averageTemperature(startTime, endTime) to class WeatherStation which returns the
+average temperature measured by the weather station between startTime and endTime.
+You need to implement this method using a Java 8 Streams (to operate on sequences of measurements within
+your method) and Lambda Expressions, as far as possible.
+Also, add a main-method where you call your method using some test data and print the result.

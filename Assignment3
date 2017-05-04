@@ -1,0 +1,10 @@
+Q1. Create a basic online calculator. Using a web form, the user specifies an operation (such as “+” or
+square root) and its arguments. The server then computes and returns the result. Use a servlet for the
+web tier and EJB(s) for the actual mathematical operations. Support the
+four basic arithmetical operations (+,-,*,/) and two unary operations (e.g., square root or sine).
+Hint: Starting from certain example code from the lectures, this should be quite easy...
+
+Q2. Extend your project created for the previous question with a security feature (implemented using
+security means presented in the lectures): only authenticated users with role “CalculatorUser” should
+be able to use your servlet. Create at least two example users to test your implementation. Also
+submit any created or modified configuration and property files. No need to encrypt interactions. 

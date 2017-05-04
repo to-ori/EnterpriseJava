@@ -1,0 +1,29 @@
+JPA
+
+Q1. In the given JpaDemoServlet code, last names and email addresses of customers are ignored or just
+dummies. Modify the given code so that these attributes are properly handled at each stage (web form,
+registering the customer by storing them in the database, retrieving from database, printing the customer’s
+data).
+
+Q2. Modify/extend the JPA-enabled servlet you have created for Q1 above as follows: if the customer submits
+their full details (name, identifier (customerId), email address), register the user with the system as before.
+Exception: if the user submits full details but had already been registered under the submitted identifier,
+his/her old name and email address should be replaced in the database with the new name and email address.
+If the user submits only his/her identifier but no other details, retrieve and show the customer his/her stored
+name and email address (or show an error message in case the identifier doesn’t belong to any customer in
+the database).
+Use JPA for all these tasks. 
+
+Q3. Suppose you want to develop a web shop for certain sports equipment. Create an appropriate entity class
+for one kind of equipment (e.g., baseball bats or table tennis tables). Add fields for appropriate properties such
+as product name, dimensions, color, manufacturer, price…
+Create a servlet which allows the store manager to add new items of this kind of equipment to the store’s
+stock database (using a web form). In addition, customers should be able to search the store’s stock for items,
+by entering any number of item properties into a web form. E.g., if the customer specifies “color: brown” and
+“length: 90cm”, your servlet should return to the browser a list with the details of all stocked brown baseball
+bats with length 90cm (if your entities are baseball bats).
+Use a database for the store’s stock and JPA for all database operations. Use JPQL for data retrieval / database
+queries.
+Remark: no need for storing user profiles or for user identification, your servlet just needs to support the
+functionality specified above, so that both (anonymous) customers and the manager can use it. Don’t create
+more than one servlet. 

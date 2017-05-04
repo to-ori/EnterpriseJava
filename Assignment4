@@ -1,0 +1,33 @@
+Q1.
+
+Q2. Create a public interface ConsoleIO . The interface should declare two methods:
+updateFromConsole and writeToConsole. These methods should have neither parameters nor return
+values.
+Also, create a generic interface ComparableGeometricFigure<…> which extends built-in interface
+Comparable<…> and which ensures, using generics, that only objects of subclasses of
+GeometricFigure2 are comparable with each other (but it should not be restricted to comparing
+octagons, but should also be usable with other subclasses of GeometricFigure2). GeometricFigure2
+is given in the lecture notes.
+Create a class Octagon for regular octagons (symmetric octagons where all sides have the same length)
+which extends GeometricFigure2 and implements your interfaces ConsoleIO and
+ComparableGeometricFigure<…>.
+writeToConsole should print the field values and the area of the octagon. updateFromConsole
+should prompt the user interactively for a number (hint: java.util.Scanner) and update the side length
+of this octagon to this value.
+Your implementation of compareTo in Octagon should compare two octagons in terms of their areas.
+Make sure that your compareTo implementation can compare only octagons with each other, and that the
+Java compiler ensures this at compile time (again, using generics).
+Finally, add a static main method with some appropriate code which demonstrates the use of
+updateFromConsole, compareTo and writeToConsole.
+
+Q3. Modify class Circle from the lecture so that it becomes a subclass of GeometricFigure2 (which is
+also given in the lecture notes). Then, modify Circle so that it becomes a generic class with a type parameter
+T which can hold any subclass of a new abstract class Number. Within your new variant of Circle, T should
+be used everywhere in place of double (i.e., as the type of the circle’s radius and area).
+Create an appropriate abstract class Number and two non-abstract subclasses of Number: NumberDouble
+and NumberInt. Objects of NumberDouble should hold double values and objects of NumberInt should
+hold integer values. These classes should have constructors for creating such objects from primitive values of
+type double respectively int. Add a main-method to Number which creates a circle object (with type
+argument NumberDouble and radius 6.9) and prints the result of calling calcArea()on that object.
+(Remarks: You might also need to modify a particular line of code in class GeometricFigure2.
+Avoid type casts as far as possible (but one particular type cast might unavoidable).) [
